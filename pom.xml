@@ -19,6 +19,9 @@
         <module>userService</module>
         <module>orderService</module>
         <module>common</module>
+        <module>orderServiceDubbo</module>
+        <module>userServiceDubbo</module>
+        <module>dubbo-api</module>
     </modules>
 
     <properties>

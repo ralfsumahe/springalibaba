@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.orderservice.order.mapper.OmsOrderMapper">
+
+    <select id="findOrderByUserId" resultType="com.example.orderservice.order.entity.OmsOrder"
+            parameterType="java.lang.Integer">
+        select * from oms_order t where t.member_id = #{userId}
+    </select>
+</mapper>
