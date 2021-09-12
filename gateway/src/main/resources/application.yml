@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: gateway
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: order_route
+          uri: http://localhost:8081
+          predicates:
+            - Path=/order/**
+        - id: user_route
+          uri: http://localhost:8091
+          predicates:
+            - Path=/member/**
+#            - name: My
+#              args:
+#                name: linkun
+            - My=linkun
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080

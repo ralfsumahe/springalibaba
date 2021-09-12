@@ -22,6 +22,8 @@
         <module>orderServiceDubbo</module>
         <module>userServiceDubbo</module>
         <module>dubbo-api</module>
+        <module>nacosconfig</module>
+        <module>gateway</module>
     </modules>
 
     <properties>

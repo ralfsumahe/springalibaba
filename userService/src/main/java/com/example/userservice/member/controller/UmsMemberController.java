@@ -2,6 +2,7 @@ package com.example.userservice.member.controller;
 
 
 import com.example.userservice.config.OrderFeignService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
  */
 @RestController
 @RequestMapping("/member")
+@Slf4j
 public class UmsMemberController {
 
     @Autowired
@@ -32,16 +34,19 @@ public class UmsMemberController {
 
     @GetMapping("findOrderByUserId/{userId}")
     public Object findOrderByUserId(@PathVariable("userId") Integer userId){
+        log.info("findOrderByUserId");
         return restTemplate.getForObject("http://localhost:8081/order/findOrderByUserId/"+userId,Object.class);
     }
 
     @GetMapping("findOrderByUserId2/{userId}")
     public Object findOrderByUserId2(@PathVariable("userId") Integer userId){
+        log.info("findOrderByUserId2");
         return restTemplate2.getForObject("http://service-order/order/findOrderByUserId/"+userId,Object.class);
     }
 
     @GetMapping("findOrderByUserId3/{userId}")
     public Object findOrderByUserId3(@PathVariable("userId") Integer userId){
+        log.info("findOrderByUserId3");
         return orderFeignService.findOrderByUserId(userId);
     }
 
